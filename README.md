@@ -29,3 +29,11 @@ python scripts/fixCollectionOpenApi.py
 ```
 
 **Note:** The script will read the `collection.json` file from the `docs` directory, clean it up, and save the cleaned version as `collection_fixed.json` in the same directory. \nMake sure to update the paths in the script if your OpenAPI specification is located elsewhere. \n WorkingDir should be the root of the repository when running the script.
+
+
+### Generate Client Library
+To generate the client library from the OpenAPI specification, you can use the OpenAPI Generator CLI. First, make sure you have it installed:
+
+```bash
+openapi-python-client generate --path docs/collection_fixed.json
+```
