@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.0.2 (2026-04-22)
+
+### Bug Fixes
+
+- Update requests version
+  ([`ad4dc0b`](https://github.com/rlm-limited/mtn_momo/commit/ad4dc0bb591961e7c5fafe49936602d89cb80f47))
+
+
 ## v1.0.1 (2026-04-22)
 
 ### Bug Fixes

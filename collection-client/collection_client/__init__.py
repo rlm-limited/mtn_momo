@@ -1,4 +1,4 @@
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 """A client library for accessing Collection"""
 
 from .client import AuthenticatedClient, Client
