@@ -355,13 +355,14 @@ wheels = [
 
 [[package]]
 name = "mtnmomo"
-version = "0.1.0"
+version = "1.0.1"
 source = { editable = "." }
 dependencies = [
     { name = "attrs" },
     { name = "httpx" },
     { name = "python-dateutil" },
     { name = "python-semantic-release" },
+    { name = "requests" },
 ]
 
 [package.dev-dependencies]
@@ -376,6 +377,7 @@ requires-dist = [
     { name = "httpx", specifier = ">=0.20.0" },
     { name = "python-dateutil", specifier = ">=2.8.2" },
     { name = "python-semantic-release", specifier = ">=10.5.3" },
+    { name = "requests", specifier = ">=2.32.5" },
 ]
 
 [package.metadata.requires-dev]
