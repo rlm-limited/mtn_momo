@@ -1,50 +1,39 @@
 import requests
-from uuid import uuid4
 from dotenv import load_dotenv
 from os import getenv
+import sys
 
+def create_api_key(x_reference_id):
+    """
+    Creates an API Key for an existing API User.
+    Returns: tuple (api_key, success_boolean, error_message)
+    """
+    load_dotenv(override=True)
+    subscription_key = getenv("PRIMARY_KEY")
 
-ENV_FILE_PATH: str = "./.env"
+    if not subscription_key:
+        return None, False, "Missing PRIMARY_KEY in .env"
 
-load_dotenv(ENV_FILE_PATH)
+    url = f"https://sandbox.momodeveloper.mtn.com/v1_0/apiuser/{x_reference_id}/apikey"
 
+    headers = {
+        "Ocp-Apim-Subscription-Key": subscription_key,
+    }
 
+    try:
+        response = requests.post(url=url, headers=headers)
+        if response.status_code == 201:
+            return response.json().get('apiKey'), True, None
+        else:
+            return None, False, response.text
+    except Exception as e:
+        return None, False, str(e)
 
-X_REFERENCE_ID = getenv("X_REFERENCE_ID")
-API_KEY = getenv("PRIMARY_KEY")
-
-
-
-if not X_REFERENCE_ID:
-    raise ValueError("X_REFERENCE_ID is not set")
-
-if not API_KEY:
-    raise ValueError("PRIMARY_KEY is not set")
-
-URL = f"https://sandbox.momodeveloper.mtn.com/v1_0/apiuser/{X_REFERENCE_ID}/apikey"
-
-
-print(f"X_REFERENCE_ID: {X_REFERENCE_ID}", "X_REFERENCE_ID")
-print(f"API_KEY: {API_KEY}", "API_KEY")
-print(f"URL: {URL}", "URL")
-
-
-headers = {
-    "X-Reference-Id": X_REFERENCE_ID,
-    "Ocp-Apim-Subscription-Key": API_KEY,
-}
-
-
-response = requests.post(
-    url=URL,
-    headers=headers,
-)
-
-if response.status_code == 201:
-    print("api key created successfully")
-    print(f"API Key: {response.json()}")
-
-else:
-    print("Failed to create api key")
-    print(f"Status Code: {response.status_code}")
-    print(f"Response: {response.text}")
+if __name__ == "__main__":
+    ref_id = getenv("X_REFERENCE_ID")
+    print(f"Creating API Key for X_REFERENCE_ID: {ref_id}")
+    key, success, error = create_api_key(ref_id)
+    if success:
+        print(f"API Key created successfully: {key}")
+    else:
+        print(f"Failed to create API key. Error: {error}")

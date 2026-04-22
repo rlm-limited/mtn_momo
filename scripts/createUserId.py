@@ -1,50 +1,48 @@
 import requests
-from uuid import uuid4
 from dotenv import load_dotenv
 from os import getenv
+from uuid import uuid4
+import sys
 
+def create_api_user(x_reference_id=None, callback_host="https://evstaging.meshpower.co.rw/payment/callback/mtn"):
+    """
+    Creates an API User in the MTN MoMo Sandbox.
+    Returns: tuple (x_reference_id, success_boolean, error_message)
+    """
+    load_dotenv(override=True)
+    subscription_key = getenv("PRIMARY_KEY")
 
-ENV_FILE_PATH: str = "./.env"
+    if not subscription_key:
+        return None, False, "Missing PRIMARY_KEY in .env"
 
-load_dotenv(ENV_FILE_PATH)
+    if not x_reference_id:
+        x_reference_id = str(uuid4())
 
-URL = "https://sandbox.momodeveloper.mtn.com/v1_0/apiuser"
+    url = "https://sandbox.momodeveloper.mtn.com/v1_0/apiuser"
 
-X_REFERENCE_ID = getenv("X_REFERENCE_ID")
-API_KEY = getenv("PRIMARY_KEY")
+    headers = {
+        "X-Reference-Id": x_reference_id,
+        "Ocp-Apim-Subscription-Key": subscription_key,
+    }
 
+    data = {
+        "providerCallbackHost": callback_host
+    }
 
+    try:
+        response = requests.post(url=url, headers=headers, json=data)
+        if response.status_code == 201:
+            return x_reference_id, True, None
+        else:
+            return x_reference_id, False, response.text
+    except Exception as e:
+        return x_reference_id, False, str(e)
 
-if not X_REFERENCE_ID:
-    raise ValueError("X_REFERENCE_ID is not set")
-
-if not API_KEY:
-    raise ValueError("PRIMARY_KEY is not set")
-
-
-print(f"X_REFERENCE_ID: {X_REFERENCE_ID}", "X_REFERENCE_ID")
-print(f"API_KEY: {API_KEY}", "API_KEY")
-
-headers = {
-    "X-Reference-Id": X_REFERENCE_ID,
-    "Ocp-Apim-Subscription-Key": API_KEY,
-}
-
-data = {
-    "providerCallbackHost": "https://evstaging.meshpower.co.rw/payment/callback/mtn"
-}
-
-response = requests.post(
-    url=URL,
-    headers=headers,
-    json=data
-)
-
-if response.status_code == 201:
-    print("User ID created successfully")
-    print(f"User ID: {X_REFERENCE_ID}")
-
-else:
-    print("Failed to create user ID")
-    print(f"Status Code: {response.status_code}")
-    print(f"Response: {response.text}")
+if __name__ == "__main__":
+    ref_id = getenv("X_REFERENCE_ID")
+    print(f"Creating API User with X_REFERENCE_ID: {ref_id}")
+    ref_id, success, error = create_api_user(x_reference_id=ref_id)
+    if success:
+        print(f"User ID created successfully: {ref_id}")
+    else:
+        print(f"Failed to create user ID. Error: {error}")
