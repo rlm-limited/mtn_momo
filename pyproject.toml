@@ -1,5 +1,5 @@
 [project]
-name = "mtnmomo"
+name = "mtn-momo"
 version = "1.0.2"
 description = "MTN Momo API client for Python"
 readme = "README.md" 

@@ -11,7 +11,7 @@ This repository contains a Python client library for interacting with the MTN Mo
 You can install the library using pip:
 
 ```bash
-pip install git+
+pip install "mtn-momo @ git+https://github.com/rlm-limited/mtn_momo.git"
 ```
 
 ## Usage

@@ -354,8 +354,8 @@ wheels = [
 ]
 
 [[package]]
-name = "mtnmomo"
-version = "1.0.1"
+name = "mtn-momo"
+version = "1.0.2"
 source = { editable = "." }
 dependencies = [
     { name = "attrs" },
