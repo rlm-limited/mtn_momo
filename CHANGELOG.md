@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.1.1 (2026-05-14)
+
+### Bug Fixes
+
+- Remove breakpoints
+  ([`e260dda`](https://github.com/rlm-limited/mtn_momo/commit/e260dda110e84af742c2d12a3b4de7a29c762ee7))
+
+
 ## v1.1.0 (2026-05-14)
 
 ### Bug Fixes
