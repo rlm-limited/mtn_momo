@@ -50,7 +50,7 @@ def test_request_payment_success():
     )
     
     response = requestto_pay.sync_detailed(
-    client=client,
+        client=client,
         body=body,
         authorization=f"Bearer {token}",
         x_reference_id=x_reference_id,

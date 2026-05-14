@@ -37,6 +37,7 @@ def test_create_access_token_success():
         assert isinstance(response.parsed, TokenPost200ApplicationJsonResponse)
         assert response.parsed.access_token is not None
         print(f"\n[SUCCESS] Access Token: {response.parsed.access_token[:15]}...")
+        print(response.parsed)
     else:
         print(f"\n[ERROR] Status Code: {response.status_code}")
         print(f"Response Content: {response.content.decode()}")

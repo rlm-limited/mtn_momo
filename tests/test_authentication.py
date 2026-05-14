@@ -24,7 +24,6 @@ def test_authentication_and_user_info_success():
     client = client.with_headers({"Ocp-Apim-Subscription-Key": subscription_key})
     
     token_response = create_access_token.sync_detailed(client=client, authorization=authorization)
-    breakpoint()
     assert token_response.status_code == 200
     token = token_response.parsed.access_token
     print(f"\n[SUCCESS] Token retrieved: {token[:15]}...")
