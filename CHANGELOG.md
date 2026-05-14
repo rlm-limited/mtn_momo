@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v1.0.3 (2026-05-14)
+
+### Bug Fixes
+
+- Dependency name
+  ([`ac00276`](https://github.com/rlm-limited/mtn_momo/commit/ac002769cb703ab5c796d7be4a09916207129133))
+
+
 ## v1.0.2 (2026-04-22)
 
 ### Bug Fixes
