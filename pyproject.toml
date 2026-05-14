@@ -1,6 +1,6 @@
 [project]
 name = "mtn-momo"
-version = "1.0.3"
+version = "1.1.0"
 description = "MTN Momo API client for Python"
 readme = "README.md" 
 requires-python = ">=3.12"
