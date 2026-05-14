@@ -7,13 +7,14 @@ import os
 
 # Import the helper from createAccessToken
 from createAccessToken import get_access_token
+load_dotenv(override=True)
+
 
 def get_request_to_pay_status(reference_id):
     """
     Retrieves the status of a Request To Pay transaction.
     Returns: dict with response data or None
     """
-    load_dotenv(override=True)
     subscription_key = getenv("PRIMARY_KEY")
 
     if not subscription_key:

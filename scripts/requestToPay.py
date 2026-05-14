@@ -33,7 +33,7 @@ def request_to_pay(amount="100", currency="EUR", party_id="0783089337", payer_me
     
     headers = {
         "Authorization": f"Bearer {token}",
-        # "X-Callback-Url": "https://evstaging.meshpower.co.rw/payment/callback/mtn",
+        "X-Callback-Url": "https://evstaging.meshpower.co.rw/payment/callback/mtn",
         "X-Reference-Id": transaction_ref_id,
         "X-Target-Environment": "sandbox",
         "Ocp-Apim-Subscription-Key": subscription_key,

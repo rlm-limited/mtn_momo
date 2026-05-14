@@ -4,12 +4,13 @@ from os import getenv
 import json
 import sys
 
+load_dotenv(override=True)
+
 def get_api_user_details(x_reference_id):
     """
     Retrieves information for an API User.
     Returns: dict with user details or None
     """
-    load_dotenv(override=True)
     subscription_key = getenv("PRIMARY_KEY")
 
     if not subscription_key:

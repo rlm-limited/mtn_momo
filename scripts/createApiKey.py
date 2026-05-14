@@ -3,12 +3,13 @@ from dotenv import load_dotenv
 from os import getenv
 import sys
 
+load_dotenv(override=True)
+
 def create_api_key(x_reference_id):
     """
     Creates an API Key for an existing API User.
     Returns: tuple (api_key, success_boolean, error_message)
     """
-    load_dotenv(override=True)
     subscription_key = getenv("PRIMARY_KEY")
 
     if not subscription_key:

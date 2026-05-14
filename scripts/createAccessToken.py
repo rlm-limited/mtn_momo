@@ -4,13 +4,14 @@ from os import getenv
 from base64 import b64encode
 import os
 
+# Load .env relative to the current working directory or absolute path if needed
+load_dotenv(override=True)
+
 def get_access_token():
     """
     Retrieves a Bearer Access Token from MTN MoMo API.
     Returns: string token or None
     """
-    # Load .env relative to the current working directory or absolute path if needed
-    load_dotenv(override=True)
 
     x_reference_id = getenv("X_REFERENCE_ID")
     subscription_key = getenv("PRIMARY_KEY")
