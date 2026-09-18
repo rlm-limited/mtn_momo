@@ -55,7 +55,7 @@ def test_request_payment_success():
         authorization=f"Bearer {token}",
         x_reference_id=x_reference_id,
         x_target_environment="sandbox",
-        x_callback_url="https://evstaging.meshpower.co.rw/payment/callback/mtn"
+        x_callback_url=os.getenv("CALLBACK_URL", "https://evstaging.meshpower.co.rw/payment/callback/mtn")
     )
     
     if response.status_code == 202:
