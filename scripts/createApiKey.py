@@ -11,11 +11,12 @@ def create_api_key(x_reference_id):
     Returns: tuple (api_key, success_boolean, error_message)
     """
     subscription_key = getenv("PRIMARY_KEY")
+    base_url = getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com")
 
     if not subscription_key:
         return None, False, "Missing PRIMARY_KEY in .env"
 
-    url = f"https://sandbox.momodeveloper.mtn.com/v1_0/apiuser/{x_reference_id}/apikey"
+    url = f"{base_url}/v1_0/apiuser/{x_reference_id}/apikey"
 
     headers = {
         "Ocp-Apim-Subscription-Key": subscription_key,
@@ -33,6 +34,7 @@ def create_api_key(x_reference_id):
 if __name__ == "__main__":
     ref_id = getenv("X_REFERENCE_ID")
     print(f"Creating API Key for X_REFERENCE_ID: {ref_id}")
+    print(f"Using BASE_URL: {getenv('BASE_URL', 'https://sandbox.momodeveloper.mtn.com')}")
     key, success, error = create_api_key(ref_id)
     if success:
         print(f"API Key created successfully: {key}")
