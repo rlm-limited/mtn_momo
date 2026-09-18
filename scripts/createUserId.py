@@ -14,6 +14,7 @@ def create_api_user():
     subscription_key = getenv("PRIMARY_KEY")
     callback_host = getenv("PROVIDER_CALLBACK_HOST")
     x_reference_id = getenv("X_REFERENCE_ID")
+    base_url = getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com")
 
     if not subscription_key:
         return None, False, "Missing PRIMARY_KEY in .env"
@@ -24,7 +25,7 @@ def create_api_user():
     if not callback_host:
         exit("Error: PROVIDER_CALLBACK_HOST must be provided either in .env or as an argument")
 
-    url = "https://sandbox.momodeveloper.mtn.com/v1_0/apiuser"
+    url = f"{base_url}/v1_0/apiuser"
 
     headers = {
         "X-Reference-Id": x_reference_id,
@@ -48,6 +49,8 @@ if __name__ == "__main__":
     ref_id = getenv("X_REFERENCE_ID")
     callback_host = getenv("PROVIDER_CALLBACK_HOST")
     print(f"Creating API User with X_REFERENCE_ID: {ref_id}")
+    # print the base URL for debugging
+    print(f"Using BASE_URL: {getenv('BASE_URL', 'https://sandbox.momodeveloper.mtn.com')}")
     ref_id, success, error = create_api_user()
     if success:
         print(f"User ID created successfully: {ref_id}")

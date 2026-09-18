@@ -33,3 +33,5 @@ dmypy.json
 
 /coverage.xml
 /.coverage
+
+*.env

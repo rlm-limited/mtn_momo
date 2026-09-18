@@ -107,3 +107,31 @@ To generate the client library from the OpenAPI specification, you can use the O
 ```bash
 openapi-python-client generate --path docs/collection_fixed.json
 ```
+
+
+## Workflow to Create a New API User and Key
+
+1. Create a new user ID with a unique `X_REFERENCE_ID` and set the `PROVIDER_CALLBACK_HOST` in `.env`.
+
+```sh
+Generate a new UUID for X_REFERENCE_ID:
+python -c "import uuid; print(uuid.uuid4())"
+```
+Note: store the generated UUID in `.env` as `X_REFERENCE_ID`.
+
+2. Create the API user by running the `createUserId.py` script. This will register the new user with MTN Momo.
+
+```sh
+python scripts/createUserId.py
+```
+
+3. Create the API key for the new user by running the `createApiKey.py` script. This will generate a new API key and store it in `.env`.
+
+```sh
+python scripts/createApiKey.py
+```
+
+4. Verify the API user and key by running the `checkApiUser.py` script. This will confirm that the new user and key are valid.
+
+```sh
+python scripts/checkApiUser.py
