@@ -17,7 +17,7 @@ def request_to_pay(amount="100", currency="EUR", party_id="0783089337", payer_me
     """
     load_dotenv(override=True)
     subscription_key = getenv("PRIMARY_KEY")
-    callback_url = getenv("CALLBACK_URL", "https://api-ev.meshpower.co.rw/payment/callback/mtn")
+    callback_url = getenv("CALLBACK_URL", "https://api-ev.meshpower.co.rw/callback/mtn")
     callback_host = getenv("PROVIDER_CALLBACK_HOST")
     base_url = getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com")
 
@@ -81,6 +81,6 @@ if __name__ == "__main__":
 
     if success:
         print("Request to Pay accepted (Pending authorization)")
-        print(f"Transaction Reference ID (X-Reference-Id): {ref_id}")
+        print(f"Transaction Reference ID: {ref_id}")
     else:
         print(f"Failed to Request to Pay. Error: {error_msg}")

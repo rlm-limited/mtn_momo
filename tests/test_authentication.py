@@ -11,7 +11,7 @@ load_dotenv()
 
 def test_authentication_and_user_info_success():
     """Test full authentication and basic user info flow using collection_client"""
-    base_url = "https://sandbox.momodeveloper.mtn.com/collection"
+    base_url = os.getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com")
     client = Client(base_url=base_url)
     
     x_reference_id = os.getenv("X_REFERENCE_ID")

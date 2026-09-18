@@ -11,7 +11,7 @@ def create_api_key(x_reference_id):
     Returns: tuple (api_key, success_boolean, error_message)
     """
     subscription_key = getenv("PRIMARY_KEY")
-    base_url = getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com")
+    base_url = getenv("BASE_SCRIPT_URL", "https://sandbox.momodeveloper.mtn.com")
 
     if not subscription_key:
         return None, False, "Missing PRIMARY_KEY in .env"

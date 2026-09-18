@@ -16,7 +16,7 @@ def get_access_token():
     x_reference_id = getenv("X_REFERENCE_ID")
     subscription_key = getenv("PRIMARY_KEY")
     api_key = getenv("API_KEY")
-    base_url = getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com")
+    base_url = getenv("BASE_SCRIPT_URL", "https://sandbox.momodeveloper.mtn.com")
 
     if not all([x_reference_id, subscription_key, api_key]):
         print("Error: Missing credentials in .env (X_REFERENCE_ID, PRIMARY_KEY, API_KEY)")

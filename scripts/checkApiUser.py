@@ -12,7 +12,7 @@ def get_api_user_details(x_reference_id):
     Returns: dict with user details or None
     """
     subscription_key = getenv("PRIMARY_KEY")
-    base_url = getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com")
+    base_url = getenv("BASE_SCRIPT_URL", "https://sandbox.momodeveloper.mtn.com")
 
     if not subscription_key:
         print("Error: Missing PRIMARY_KEY in .env")
@@ -37,7 +37,7 @@ def get_api_user_details(x_reference_id):
 
 if __name__ == "__main__":
     ref_id = getenv("X_REFERENCE_ID")
-    print(f"Using BASE_URL: {getenv('BASE_URL', 'https://sandbox.momodeveloper.mtn.com')}")
+    print(f"Using BASE_SCRIPT_URL: {getenv('BASE_SCRIPT_URL', 'https://sandbox.momodeveloper.mtn.com')}")
     print(f"Fetching details for API User: {ref_id}")
     details = get_api_user_details(ref_id)
     if details:

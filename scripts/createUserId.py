@@ -14,7 +14,7 @@ def create_api_user():
     subscription_key = getenv("PRIMARY_KEY")
     callback_host = getenv("PROVIDER_CALLBACK_HOST")
     x_reference_id = getenv("X_REFERENCE_ID")
-    base_url = getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com")
+    base_url = getenv("BASE_SCRIPT_URL", "https://sandbox.momodeveloper.mtn.com")
 
     if not subscription_key:
         return None, False, "Missing PRIMARY_KEY in .env"

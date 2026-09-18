@@ -16,6 +16,7 @@ def get_request_to_pay_status(reference_id):
     Returns: dict with response data or None
     """
     subscription_key = getenv("PRIMARY_KEY")
+    base_url = getenv("BASE_SCRIPT_URL", "https://sandbox.momodeveloper.mtn.com")
 
     if not subscription_key:
         print("Error: Missing PRIMARY_KEY in .env")
@@ -25,7 +26,7 @@ def get_request_to_pay_status(reference_id):
     if not token:
         return None
 
-    url = f"https://sandbox.momodeveloper.mtn.com/collection/v1_0/requesttopay/{reference_id}"
+    url = f"{base_url}/collection/v1_0/requesttopay/{reference_id}"
     
     headers = {
         "Authorization": f"Bearer {token}",

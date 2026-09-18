@@ -25,7 +25,7 @@ def get_token():
 
 def test_request_payment_success():
     """Test RequestToPay successfully using collection_client"""
-    base_url = "https://sandbox.momodeveloper.mtn.com/collection"
+    base_url = os.getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com/collection")
     subscription_key = os.getenv("PRIMARY_KEY")
     token = get_token()
     

@@ -14,7 +14,7 @@ import pytest
 load_dotenv()
 
 def get_token():
-    base_url = "https://sandbox.momodeveloper.mtn.com/collection"
+    base_url = os.getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com/collection")
     client = Client(base_url=base_url)
     x_reference_id = os.getenv("X_REFERENCE_ID")
     api_key = os.getenv("API_KEY")
@@ -27,7 +27,7 @@ def get_token():
 
 def test_check_request_payment_status_success():
     """Test RequestToPayTransactionStatus successfully using collection_client"""
-    base_url = "https://sandbox.momodeveloper.mtn.com/collection"
+    base_url = os.getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com/collection")
     subscription_key = os.getenv("PRIMARY_KEY")
     token = get_token()
     
