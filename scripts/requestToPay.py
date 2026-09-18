@@ -19,6 +19,7 @@ def request_to_pay(amount="100", currency="EUR", party_id="0783089337", payer_me
     subscription_key = getenv("PRIMARY_KEY")
     callback_url = getenv("CALLBACK_URL", "https://api-ev.meshpower.co.rw/payment/callback/mtn")
     callback_host = getenv("PROVIDER_CALLBACK_HOST")
+    base_url = getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com")
 
     if not subscription_key:
         print("Error: Missing PRIMARY_KEY in .env")
@@ -37,7 +38,7 @@ def request_to_pay(amount="100", currency="EUR", party_id="0783089337", payer_me
     transaction_ref_id = str(uuid4())
     external_id = str(uuid4())
 
-    url = "https://sandbox.momodeveloper.mtn.com/collection/v1_0/requesttopay"
+    url = f"{base_url}/collection/v1_0/requesttopay"
     
     headers = {
         "Authorization": f"Bearer {token}",
