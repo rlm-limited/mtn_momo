@@ -25,7 +25,7 @@ def get_token():
 
 def test_request_payment_success():
     """Test RequestToPay successfully using collection_client"""
-    base_url = os.getenv("BASE_SCRIPT_URL", "https://sandbox.momodeveloper.mtn.com/collection")
+    base_url = os.getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com/collection")
     subscription_key = os.getenv("PRIMARY_KEY")
     token = get_token()
     
@@ -55,7 +55,7 @@ def test_request_payment_success():
         authorization=f"Bearer {token}",
         x_reference_id=x_reference_id,
         x_target_environment="sandbox",
-        x_callback_url=os.getenv("CALLBACK_URL", "https://evstaging.meshpower.co.rw/payment/callback/mtn")
+        x_callback_url=os.getenv("CALLBACK_URL", "https://api-ev.meshpower.co.rw/callback/mtn")
     )
     
     if response.status_code == 202:

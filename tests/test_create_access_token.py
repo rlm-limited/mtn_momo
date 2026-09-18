@@ -11,7 +11,7 @@ load_dotenv()
 def test_create_access_token_success():
     """Test CreateAccessToken successfully using collection_client"""
     # Use the product-specific path in the base_url
-    ase_url = os.getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com/collection")
+    base_url = os.getenv("BASE_URL", "https://sandbox.momodeveloper.mtn.com/collection")
     client = Client(base_url=base_url)
     
     x_reference_id = os.getenv("X_REFERENCE_ID", "").replace('"', '').replace("'", "")

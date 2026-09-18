@@ -20,6 +20,7 @@ def request_to_pay(amount="100", currency="EUR", party_id="0783089337", payer_me
     callback_url = getenv("CALLBACK_URL", "https://api-ev.meshpower.co.rw/callback/mtn")
     callback_host = getenv("PROVIDER_CALLBACK_HOST")
     base_url = getenv("BASE_SCRIPT_URL", "https://sandbox.momodeveloper.mtn.com")
+    print(callback_url, "This is the callback url")
 
     if not subscription_key:
         print("Error: Missing PRIMARY_KEY in .env")
