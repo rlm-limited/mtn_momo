@@ -2,6 +2,37 @@
 
 <!-- version list -->
 
+## v1.2.0 (2026-09-22)
+
+### Bug Fixes
+
+- Change hard coded url paths
+  ([`c418936`](https://github.com/rlm-limited/mtn_momo/commit/c4189366ad96b8abb24f71126d6e525b6ddec002))
+
+- Remove hard coded urls in check access token
+  ([`47c1b4d`](https://github.com/rlm-limited/mtn_momo/commit/47c1b4d212cbf3a0939ed0fc2ea0b79a69ae4035))
+
+- Remove hard coded urls in check api user
+  ([`a8773a2`](https://github.com/rlm-limited/mtn_momo/commit/a8773a2d7dd6c76b813d369d8135a78f7654a8b1))
+
+- Remove hard coded urls in create api key
+  ([`372ad1c`](https://github.com/rlm-limited/mtn_momo/commit/372ad1ce54285c0f1b331bf6863d28a930e563d9))
+
+- Remove hard coded urls in create user
+  ([`eb845b0`](https://github.com/rlm-limited/mtn_momo/commit/eb845b0b1e70f3f8d716bacb4e34942706016c9c))
+
+- Request to pay base url to base script url
+  ([`d59f951`](https://github.com/rlm-limited/mtn_momo/commit/d59f951ea6a0c04fc5588960f9895dbfa1df5e3f))
+
+- Test request to pay callback
+  ([`a9a85b1`](https://github.com/rlm-limited/mtn_momo/commit/a9a85b1bf5720162333c2dca658911e5fb90585c))
+
+### Features
+
+- BASE URL for scripts and api
+  ([`0ae81aa`](https://github.com/rlm-limited/mtn_momo/commit/0ae81aad69d8ea1fab4ca7ee564fc00c7a08339f))
+
+
 ## v1.1.1 (2026-05-14)
 
 ### Bug Fixes
